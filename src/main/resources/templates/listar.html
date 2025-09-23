@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Motos</title>
+</head>
+<body>
+<h1>Motos Cadastradas</h1>
+
+<div th:if="${mensagem}" style="color: green;">
+    <p th:text="${mensagem}"></p>
+</div>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Tag RFID</th>
+        <th>Modelo</th>
+        <th>Cor</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="moto : ${motos}">
+        <td th:text="${moto.id}"></td>
+        <td th:text="${moto.tagRfid}"></td>
+        <td th:text="${moto.modelo}"></td>
+        <td th:text="${moto.cor}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<br>
+<a th:href="@{/motos/cadastrar}">Cadastrar Nova Moto</a>
+</body>
+</html>

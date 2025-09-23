@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Moto</title>
+</head>
+<body>
+<h1>Cadastro de Moto</h1>
+<form th:action="@{/motos}" th:object="${moto}" method="post">
+    <label for="tagRfid">Tag RFID:</label><br>
+    <input type="text" id="tagRfid" th:field="*{tagRfid}" required/><br><br>
+
+    <label for="modelo">Modelo:</label><br>
+    <input type="text" id="modelo" th:field="*{modelo}" required/><br><br>
+
+    <label for="cor">Cor:</label><br>
+    <input type="text" id="cor" th:field="*{cor}" required/><br><br>
+
+    <button type="submit">Cadastrar</button>
+</form>
+<br>
+<a th:href="@{/motos}">Voltar para a Lista</a>
+</body>
+</html>
