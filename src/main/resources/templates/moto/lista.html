@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Motos</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="bg-gray-100">
+
+<div class="container mx-auto p-4 max-w-4xl mt-10">
+    <div class="prose">
+        <h1>Motos Cadastradas</h1>
+    </div>
+
+    <div th:if="${mensagem}" role="alert" class="alert alert-success mt-4">
+        <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+        <span th:text="${mensagem}"></span>
+    </div>
+
+    <div class="overflow-x-auto mt-6">
+        <table class="table table-zebra w-full">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tag RFID</th>
+                <th>Modelo</th>
+                <th>Cor</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="moto : ${motos}">
+                <td th:text="${moto.id}"></td>
+                <td th:text="${moto.tagRfid}"></td>
+                <td th:text="${moto.modelo}"></td>
+                <td th:text="${moto.cor}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="mt-6 flex justify-end">
+        <a th:href="@{/motos/cadastrar}" class="btn btn-primary">Cadastrar Nova Moto</a>
+    </div>
+</div>
+</body>
+</html>
