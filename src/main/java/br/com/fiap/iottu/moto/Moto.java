@@ -18,7 +18,7 @@ public class Moto {
     @Column(unique = true, nullable = false)
     private String tagRfid;
 
-    private String cor;
+    private String placa;
     private String modelo;
     private Double latitude;
     private Double longitude;

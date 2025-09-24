@@ -1,0 +1,2 @@
+ALTER TABLE moto
+RENAME COLUMN cor TO placa;

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Moto</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="bg-gray-900 flex items-center justify-center min-h-screen">
+
+<div class="card w-full max-w-md bg-base-100 shadow-xl p-8" data-theme="emerald">
+    <h1 class="card-title text-2xl font-bold mb-6">Cadastro de Moto</h1>
+
+    <form th:action="@{/motos}" th:object="${moto}" method="post" class="space-y-4">
+        <div class="form-control">
+            <label class="label" for="tagRfid">
+                <span class="label-text">Tag RFID:</span>
+            </label>
+            <input type="text" id="tagRfid" th:field="*{tagRfid}" class="input input-bordered w-full" required/>
+        </div>
+
+        <div class="form-control">
+            <label class="label" for="modelo">
+                <span class="label-text">Modelo:</span>
+            </label>
+            <input type="text" id="modelo" th:field="*{modelo}" class="input input-bordered w-full" required/>
+        </div>
+
+        <div class="form-control">
+            <label class="label" for="placa">
+                <span class="label-text">Placa:</span>
+            </label>
+            <input type="text" id="placa" th:field="*{placa}" class="input input-bordered w-full" required/>
+        </div>
+
+        <div class="card-actions justify-end mt-6">
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
+        </div>
+    </form>
+
+    <div class="mt-4 text-center">
+        <a th:href="@{/}" class="link link-hover">Voltar para a Lista</a>
+    </div>
+</div>
+</body>
+</html>
